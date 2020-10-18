@@ -1176,3 +1176,45 @@ you can use the generic selector below, but it's slower:
 .btn-collapse:focus{
   border: none;
 }
+
+
+.panel-heading{
+  background: transparent !important;
+  border: none !important;
+}
+
+.panel-body {
+  border: none !important;
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: none !important;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: none !important;
+}
+
+.panel-title{
+  color: #333;
+}
+
+a:hover, a:focus{
+  color: #D2A562 !important;
+}
+
+select.form-control.select-bahasa {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+select.form-control.select-bahasa:focus {
+  box-shadow: none;
+}
+
+select.form-control.select-bahasa option{
+  color: #333;
+}
+

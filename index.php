@@ -52,6 +52,7 @@ if (!empty($_GET['lang'])) {
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- UIkit CSS -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/css/uikit.min.css" /> -->
 
@@ -121,6 +122,24 @@ if (!empty($_GET['lang'])) {
             -moz-transition: all 0.2s ease-in-out;
             transition: all 0.2s ease-in-out;
         } */
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
     </style>
 </head>
 
@@ -134,7 +153,7 @@ if (!empty($_GET['lang'])) {
                 <div class="header-content">
                     <div class="logo"><a href="#"><img src="img/sedna-logo.png" alt="Sedna logo"></a></div>
                     <div class="header-nav">
-                        <nav id="navb">
+                        <nav id="nav">
                             <ul class="primary-nav">
                                 <li><a href="#about"><?php echo $_SESSION['lang'] . $about; ?></a></li>
                                 <li><a href="#manfaat"><?php echo $_SESSION['lang'] . $manfaat; ?></a></li>
@@ -144,12 +163,12 @@ if (!empty($_GET['lang'])) {
                                 <li><a href="#blog"><?php echo $_SESSION['lang'] . $galerry; ?></a></li>
                                 <li><a href="#blog"><?php echo $_SESSION['lang'] . $testi; ?></a></li>
                                 <li><a href="#download"><?php echo $_SESSION['lang'] . $email; ?></a></li>
-
-                                <br>
-
+                            </ul>
+                            <ul class="member-actions">
+                                <!-- <li><a href="#download" class="login">Log in</a></li> -->
                                 <li>
-                                    <form name="form1" method="post" action="?lang=">
-                                        <select name="menu1" onChange="MM_jumpMenu('parent',this,0)">
+                                    <form  name="form1" method="post" action="?lang=">
+                                        <select class="form-control select-bahasa" name="menu1" onChange="MM_jumpMenu('parent',this,0)">
                                             <?php
                                             if (($_GET['lang'] == "indonesian") || (empty($_GET['lang']))) {
                                             ?>
@@ -166,10 +185,6 @@ if (!empty($_GET['lang'])) {
                                         </select>
                                     </form>
                                 </li>
-                            </ul>
-                            <ul class="member-actions">
-                                <!-- <li><a href="#download" class="login">Log in</a></li> -->
-                                <!-- <li><a href="#download" class="btn-white btn-small">Sign up</a></li> -->
                             </ul>
                         </nav>
                     </div>
@@ -274,53 +289,49 @@ if (!empty($_GET['lang'])) {
         </div>
     </section>
     <section class="features section-padding" id="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-md-offset-7">
-                    <div class="feature-list">
-                        <h3>Mengapa Memilih Samdexs?</h3>
-                        <!-- <p>Present your product, start up, or portfolio in a beautifully modern way. Turn your visitors in to clients.</p> -->
-                        <ul class="features-stack">
-                            <li class="feature-item">
-                                <div class="feature-icon">
-                                    <span data-icon="&#xe03e;" class="icon"></span>
-                                </div>
-                                <div class="feature-content">
-                                    <h5>Bahan Terjamin</h5>
-                                    <p>SAMDEXS mengandung bahan nabati terjamin menghasilkan produk yang berkualitas serta irit, gesit dan ekonomis</p>
-                                </div>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-icon">
-                                    <span data-icon="&#xe040;" class="icon"></span>
-                                </div>
-                                <div class="feature-content">
-                                    <h5>Mudah digunakan</h5>
-                                    <p>1. Bagi pengguna roda dua beri 2 ml samdexs </p>
-                                    <p>2. Bagi pengguna roda empat beri 5 ml samdexs</p>
-                                </div>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-icon">
-                                    <span data-icon="&#xe03c;" class="icon"></span>
-                                </div>
-                                <div class="feature-content">
-                                    <h5>Meningkatkan Performa Mesin</h5>
-                                    <p>Produk SAMDEXS terbukti meningkatkan oktan sehingga pembakaran di ruang mesin menjadi sempurna dan tidak meninggalkan kerak karbon</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="container">
+                    <img src="img/devices.png" alt="responsive devices">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="feature-list">
+                    <h3>Mengapa Memilih Samdexs?</h3>
+                    <!-- <p>Present your product, start up, or portfolio in a beautifully modern way. Turn your visitors in to clients.</p> -->
+                    <ul class="features-stack">
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span data-icon="&#xe03e;" class="icon"></span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Bahan Terjamin</h5>
+                                <p>SAMDEXS mengandung bahan nabati terjamin menghasilkan produk yang berkualitas serta irit, gesit dan ekonomis</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span data-icon="&#xe040;" class="icon"></span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Mudah digunakan</h5>
+                                <p>1. Bagi pengguna roda dua beri 2 ml samdexs </p>
+                                <p>2. Bagi pengguna roda empat beri 5 ml samdexs</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span data-icon="&#xe03c;" class="icon"></span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Meningkatkan Performa Mesin</h5>
+                                <p>Produk SAMDEXS terbukti meningkatkan oktan sehingga pembakaran di ruang mesin menjadi sempurna dan tidak meninggalkan kerak karbon</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="devicecase">
-            <div class="devices">
-                <div class="ipad-wrap wp1"></div>
-                <div class="iphone-wrap wp2"></div>
-            </div>
-        </div>
-        <div class="responsive-feature-img"><img src="img/devices.png" alt="responsive devices"></div>
     </section>
     <section class="features-extra section-padding" id="assets">
         <div class="container">
@@ -583,195 +594,213 @@ if (!empty($_GET['lang'])) {
         </div>
     </section>
 
-    <section class="faq mt-5">
+
+    <section class="faqs ">
         <div class="container">
-            <div class="row">
-                <div class="col-md-5"></div>
-                <div class="col-md-7">
-                    <div id="accordion">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                        Apa itu SAMDEXS?
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    SAMDEXS Adalah cairan additive, hasil fermentasi bahan nabati yang di kemas dan dipasarkan oleh PT. SILA SUKSES BERSAMA.
-                                    Dengan adanya kebutuhan BBM semakin meningkat dan harga BBM semakin lama semakin naik
-                                    PT, SILA SUKSES BERSAMA Juga mengikuti program pemerintah yang menganjurkan GOGREEN udara anti polusi sehingga terdoronglah prof ahli bioteknologi dan didukung oleh pakar otomotif mengadakan penelitian bertujuan menciptakan additive penghemat BBM yang ramah lingkungan dan mempunyai selogan IRIT GESIT EKONOMIS
-
+            <div class="row justify-content-center mt-5" style="margin-top: 50px;">
+                <div class="col-md-8">
+                    <div class="container">
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">1. Apa itu SAMDEXS?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            SAMDEXS Adalah cairan additive, hasil fermentasi bahan nabati yang di kemas dan dipasarkan oleh PT. SILA SUKSES BERSAMA.
+                                            Dengan adanya kebutuhan BBM semakin meningkat dan harga BBM semakin lama semakin naik
+                                            PT, SILA SUKSES BERSAMA Juga mengikuti program pemerintah yang menganjurkan GOGREEN udara anti polusi sehingga terdoronglah prof ahli bioteknologi dan didukung oleh pakar otomotif mengadakan penelitian bertujuan menciptakan additive penghemat BBM yang ramah lingkungan dan mempunyai selogan IRIT GESIT EKONOMIS
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseDua" aria-expanded="false" aria-controls="collapseDua">
-                                        2.Apa keunggulan SAMDEXS itu ?
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseDua" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    Diluaran ada beberapa jenis penghemat BBM yg masih mengandung Zn dan Pb ( timbal) yg justru merusak mesin dan menimbulkan kerak pada filter bensin
-                                    SAMDEXS murni hasil fermentasi bahan nabati sehingga meningkatkan peforma mesin, menyempurnakan pembakaran, memberikan penghematan dan ramah lingkungan,,
-                                    SAMDEXS full organik sehingga mudah menyatu dgn bahan bakar untuk menaikan oktan dan meningkatkan performa mesin yang berbahan sebagai berikut :
-                                    Bahan murni dari bahan nabati yang tidak berbahaya pada organ manusia yg berfungsi meyempurnakan pembakaran dan mempertahankam mesin tetap prima
-                                    De Emulsion. Memisahkan zat murni bahan bakar dengan emulsi pengotor seperti air hujan dll. Sehingga tak berpengaruh pada proses pembakaran.
-                                    Corrosion Inhibitor. Mencegah korosi/karat pada saluran bensin dan mesin pembakaran, serta membuang sisa karat karena penggunaan bbm yang salah seperti premium pada motor dengan kompresi diatas 9.1 (jenis injection dan matic )
-                                    Dengan SAMDEXS pembakaran akan lebih sempurna hingga emisi gas buang 90-100%.Jika pembakaran sempurna artinya semua bensin (dalam bentuk uap) dalam tabung kompresi terbakar semua sehingga menambah dorongan lebih.
-                                    Dengan SAMDEXS bensin menjadi lebih murni.
-
-
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">2. Apa keunggulan SAMDEXS itu ?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            Diluaran ada beberapa jenis penghemat BBM yg masih mengandung Zn dan Pb ( timbal) yg justru merusak mesin dan menimbulkan kerak pada filter bensin
+                                            SAMDEXS murni hasil fermentasi bahan nabati sehingga meningkatkan peforma mesin, menyempurnakan pembakaran, memberikan penghematan dan ramah lingkungan,,
+                                            SAMDEXS full organik sehingga mudah menyatu dgn bahan bakar untuk menaikan oktan dan meningkatkan performa mesin yang berbahan sebagai berikut :
+                                            Bahan murni dari bahan nabati yang tidak berbahaya pada organ manusia yg berfungsi meyempurnakan pembakaran dan mempertahankam mesin tetap prima
+                                            De Emulsion. Memisahkan zat murni bahan bakar dengan emulsi pengotor seperti air hujan dll. Sehingga tak berpengaruh pada proses pembakaran.
+                                            Corrosion Inhibitor. Mencegah korosi/karat pada saluran bensin dan mesin pembakaran, serta membuang sisa karat karena penggunaan bbm yang salah seperti premium pada motor dengan kompresi diatas 9.1 (jenis injection dan matic )
+                                            Dengan SAMDEXS pembakaran akan lebih sempurna hingga emisi gas buang 90-100%.Jika pembakaran sempurna artinya semua bensin (dalam bentuk uap) dalam tabung kompresi terbakar semua sehingga menambah dorongan lebih.
+                                            Dengan SAMDEXS bensin menjadi lebih murni.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseTiga" aria-expanded="false" aria-controls="collapseTiga">
-                                        Apakah SAMDEXS aman untuk mesin ?
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseTiga" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    SAMDEXS aman untuk mesin karena :
-                                    <ul>
-                                        <li>SAMDEXS 100% terbuat dari hasil fermentasi bahan Nabati</li>
-                                        <li>Hasil penelitian prof ahli bioteknologi dan didukung oleh pakar otomotif</li>
-                                        <li>Telah lulus uji Pro Lab dan uji emisi dari perhubungan</li>
-                                        <li>Telah terbukti melalui pengujian langsung di beberapa kendaraan dan tidak ada complain, mesin tetap dalam kondisi baik dan performa mesin bagus.</li>
-                                    </ul>
-
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">3. Apakah SAMDEXS aman untuk mesin ?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            SAMDEXS aman untuk mesin karena :
+                                            <ul>
+                                                <li>SAMDEXS 100% terbuat dari hasil fermentasi bahan Nabati</li>
+                                                <li>Hasil penelitian prof ahli bioteknologi dan didukung oleh pakar otomotif</li>
+                                                <li>Telah lulus uji Pro Lab dan uji emisi dari perhubungan</li>
+                                                <li>Telah terbukti melalui pengujian langsung di beberapa kendaraan dan tidak ada complain, mesin tetap dalam kondisi baik dan performa mesin bagus.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseEmpat" aria-expanded="false" aria-controls="collapseEmpat">
-                                    Manfaat menggunakan SAMDEXS?
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseEmpat" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    SAMDEXS aman untuk mesin karena :
-                                    <ul>
-                                        <li>SAMDEXS 100% terbuat dari hasil fermentasi bahan Nabati</li>
-                                        <li>Hasil penelitian prof ahli bioteknologi dan didukung oleh pakar otomotif</li>
-                                        <li>Telah lulus uji Pro Lab dan uji emisi dari perhubungan</li>
-                                        <li>Telah terbukti melalui pengujian langsung di beberapa kendaraan dan tidak ada complain, mesin tetap dalam kondisi baik dan performa mesin bagus.</li>
-                                    </ul>
-
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">4. Manfaat menggunakan SAMDEXS?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            SAMDEXS aman untuk mesin karena :
+                                            <ul>
+                                                <li>SAMDEXS 100% terbuat dari hasil fermentasi bahan Nabati</li>
+                                                <li>Hasil penelitian prof ahli bioteknologi dan didukung oleh pakar otomotif</li>
+                                                <li>Telah lulus uji Pro Lab dan uji emisi dari perhubungan</li>
+                                                <li>Telah terbukti melalui pengujian langsung di beberapa kendaraan dan tidak ada complain, mesin tetap dalam kondisi baik dan performa mesin bagus.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseLima" aria-expanded="false" aria-controls="collapseLima">
-                                    Cara Menggunakan SAMDEXS
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseLima" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                   <ol>
-                                       <li>Cara Menggunakan SAMDEXS</li>
-                                       <li>Cara Menggunakan SAMDEXS</li>
-                                   </ol>
-
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">5. Manfaat menggunakan SAMDEXS?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            SAMDEXS aman untuk mesin karena :
+                                            <ul>
+                                                <li>SAMDEXS 100% terbuat dari hasil fermentasi bahan Nabati</li>
+                                                <li>Hasil penelitian prof ahli bioteknologi dan didukung oleh pakar otomotif</li>
+                                                <li>Telah lulus uji Pro Lab dan uji emisi dari perhubungan</li>
+                                                <li>Telah terbukti melalui pengujian langsung di beberapa kendaraan dan tidak ada complain, mesin tetap dalam kondisi baik dan performa mesin bagus.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseEnam" aria-expanded="false" aria-controls="collapseEnam">
-                                    Bahaya tidak SAMDEXS Ke Mesin Kendaraan?
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseEnam" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                SAMDEXS menggunakan Fermentasi Nabati dan berbahan organik. Dia bekerja tidak langsung membuat irit BBM. Tapi dia melunturkan kerak kerak melalui udara pembuangan. Menutup pori pori Blok mesin yang terkikis akibat kinerja piston yang tidak stabil. Selain itu, SAMDEXS membuat lapisan flin di blok mesin dan piston. Ini adalah rekayasa SAMDEXS supaya mesin terlindungi. Jika dibuka, seakan ada lapisan plastik pada piston, ring dan blok mesin bagian dalam.
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse5" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">6. Cara Menggunakan SAMDEXS</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse5" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            <ul>
+                                                <li>Cara Menggunakan SAMDEXS</li>
+                                                <li>Cara Menggunakan SAMDEXS</li>
+                                                </ol>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn-collapse" data-toggle="collapse" data-target="#collapseTujuh" aria-expanded="false" aria-controls="collapseTujuh">
-                                    Bagaimana penjelasan SAMDEXS bisa menghemat BBM ? 
-                                    </button>
-                                </h5>
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse6" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">7. Bahaya tidak SAMDEXS Ke Mesin Kendaraan?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse6" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            SAMDEXS menggunakan Fermentasi Nabati dan berbahan organik. Dia bekerja tidak langsung membuat irit BBM. Tapi dia melunturkan kerak kerak melalui udara pembuangan. Menutup pori pori Blok mesin yang terkikis akibat kinerja piston yang tidak stabil. Selain itu, SAMDEXS membuat lapisan flin di blok mesin dan piston. Ini adalah rekayasa SAMDEXS supaya mesin terlindungi. Jika dibuka, seakan ada lapisan plastik pada piston, ring dan blok mesin bagian dalam.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div id="collapseTujuh" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                Penghematan BBM dengan SAMDEXS pada dasarnya hanyalah efek dari pembakaran yg sempurna.
-                                Secara umum, pembakaran yang sempurna terjadi jika BBM memiliki padanan RON (Research Octane Number) yg sesuai dg Compression Ratio kendaraan.
-                                        <br>
-                                Tabel Kompresi RON <br> 
-                                8,1:1-9,0:1 88 <br>
-                                8,6:1-9,5:1 90 <br>
-                                9,1:1-10,0:1 92 <br>
-                                10,1:1-10,7:1 95 <br>
-                                10,8:1-11,5:1 96 <br>
-                                <br>
+                            <div class="panel panel-ligth">
+                                <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse7" class="panel-title expand">
+                                        <div class="right-arrow pull-right">+</div>
+                                        <a href="#">8. Bagaimana penjelasan SAMDEXS bisa menghemat BBM ?</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse7" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="container">
+                                            Penghematan BBM dengan SAMDEXS pada dasarnya hanyalah efek dari pembakaran yg sempurna.
+                                            Secara umum, pembakaran yang sempurna terjadi jika BBM memiliki padanan RON (Research Octane Number) yg sesuai dg Compression Ratio kendaraan.
+                                            <br>
+                                            Tabel Kompresi RON <br>
+                                            8,1:1-9,0:1 88 <br>
+                                            8,6:1-9,5:1 90 <br>
+                                            9,1:1-10,0:1 92 <br>
+                                            10,1:1-10,7:1 95 <br>
+                                            10,8:1-11,5:1 96 <br>
+                                            <br>
 
-                                Semakin tinggi KOMPRESI MESIN semakin tingggi kebutuhan RON
-                                Kendaraan dari tahun 2009 rata-rata sdh memiliki Kompresi mesin yg tinggi minimal 9,1:1 bahkan 11,1:1 dst. Jd butuh BBM dg RON tinggi.
-                                Dan apabila menggunakan BBM RON lebih rendah maka akibatnya knocking.
-                                Knocking adalah terbakarnya campuran bensin dan udara di ruang bakar karena tekanan piston sebelum mendapat percikan api dari busi. (Terbakar terlalu cepat sebelum waktunya). Istilah lain Knocking yaitu MBREBET
+                                            Semakin tinggi KOMPRESI MESIN semakin tingggi kebutuhan RON
+                                            Kendaraan dari tahun 2009 rata-rata sdh memiliki Kompresi mesin yg tinggi minimal 9,1:1 bahkan 11,1:1 dst. Jd butuh BBM dg RON tinggi.
+                                            Dan apabila menggunakan BBM RON lebih rendah maka akibatnya knocking.
+                                            Knocking adalah terbakarnya campuran bensin dan udara di ruang bakar karena tekanan piston sebelum mendapat percikan api dari busi. (Terbakar terlalu cepat sebelum waktunya). Istilah lain Knocking yaitu MBREBET
 
-                                <br>
+                                            <br>
 
-                                Efek dari Knocking :
-                                <ul>
-                                    <li>Piston jebol</li>
-                                    <li>Mesin berkerak</li>
-                                    <li>Tenaga loyo</li>
-                                    <li>Polusi</li>
-                                    <li>Boros BBM</li>
-                                    <li>Oil Cepat Kotor</li>
-                                </ul>
-                                <br>
-                            
-                                Maka dari itu pakailah SAMDEXS, yang bermanfaat :
-                                <br>
-                                <ul>
-                                    <li>Meningkat Power dan Torsi</li>
-                                    <li>Hemat 45%</li>
-                                    <li>Menghilangkan Polusi CO Hingga 100% Meningkatkan 5-10 RON</li>
-                                    <li>Membersihkan Kerak</li>
-                                    <li>Menghilangkan Knocking</li>
-                                </ul>
+                                            Efek dari Knocking :
+                                            <ul>
+                                                <li>Piston jebol</li>
+                                                <li>Mesin berkerak</li>
+                                                <li>Tenaga loyo</li>
+                                                <li>Polusi</li>
+                                                <li>Boros BBM</li>
+                                                <li>Oil Cepat Kotor</li>
+                                            </ul>
+                                            <br>
+
+                                            Maka dari itu pakailah SAMDEXS, yang bermanfaat :
+                                            <br>
+                                            <ul>
+                                                <li>Meningkat Power dan Torsi</li>
+                                                <li>Hemat 45%</li>
+                                                <li>Menghilangkan Polusi CO Hingga 100% Meningkatkan 5-10 RON</li>
+                                                <li>Membersihkan Kerak</li>
+                                                <li>Menghilangkan Knocking</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
+
     <section class="sign-up section-padding text-center" id="download">
         <div class="container">
             <div class="row">
@@ -828,6 +857,11 @@ if (!empty($_GET['lang'])) {
             </div>
         </div>
     </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
@@ -888,6 +922,21 @@ if (!empty($_GET['lang'])) {
         //    }, 4500);
         //     event.preventDefault();
         //     });
+    </script>
+
+    <script>
+        $(function() {
+            $(".expand").on("click", function() {
+                // $(this).next().slideToggle(200);
+                $expand = $(this).find(">:first-child");
+
+                if ($expand.text() == "+") {
+                    $expand.text("-");
+                } else {
+                    $expand.text("+");
+                }
+            });
+        });
     </script>
 </body>
 
