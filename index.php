@@ -290,9 +290,9 @@ if (!empty($_GET['lang'])) {
     </section>
     <section class="features section-padding" id="features">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="container">
-                    <img src="img/devices.png" alt="responsive devices">
+                    <img src="img/devices.png" class="img-responsive" alt="responsive devices">
                 </div>
             </div>
             <div class="col-md-5">
